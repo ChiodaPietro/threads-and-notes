@@ -14,8 +14,15 @@ package Main;
 // when all the threads created by the user die, all the daemon thread get killed by the garbage colelctor and dies
 //die=the thread is removed from the ram stack
 
-//the extension is more invasive
-//the implementation, i build my thread on an interface,
+//IMPLEMENTATION AND EXTENSION DIFFERENCES:
+//the extension is more invasive, the thread has its stack of execution in the ram,
+//it is out of the control of the jvm, this type of thread opens a stream inside itself, so outside the jvm, thick thread,
+//because all its resources are dedicated
+
+//the implementation, i build my thread on an interface, this one opens a stream inside the jvm, even though the
+//thread has its own memory stack, so this is a THIN THREAD, the resources are not its
+
+//the daemon thread is managed completely by the jvm
 
 public class Main {
     public static int contatore= 0;
